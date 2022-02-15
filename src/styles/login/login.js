@@ -24,7 +24,7 @@ export const Input = styled.input`
   border-left: none;
   border-right: none;
   border-top: none;
-  margin: 25px 0px;
+  margin: 20px 0px;
   padding: 5px;
   outline: none;
   color: #fff;
