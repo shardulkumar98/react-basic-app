@@ -3,11 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
 display:flex;
 flex-direction: column;
-align-itmes: center;
-background: #000;
-// background-image: url('../images/bg.jpeg');
+justify-content: center;
+align-items: center;
 height: 100vh;
 
+`
+export const MainContatiner = styled(Container)`
+background: black;
 `
 
 export const Head = styled.h1`
