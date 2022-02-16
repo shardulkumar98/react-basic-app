@@ -8,6 +8,8 @@ import {
   Input,
   Button,
   MainContatiner,
+  Form,
+  Para,
 } from "styles/login/login";
 
 const schema = yup
@@ -43,13 +45,13 @@ const Login = () => {
     <MainContatiner>
       <Container>
         <Head>Log in your account</Head>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <Input {...register("Email")} placeholder="Email" />
-          <p>{errors.Email?.message}</p>
+          <Para>{errors.Email?.message}</Para>
           <Input {...register("Password")} placeholder="Password" />
-          <p>{errors.Password?.message}</p>
+          <Para>{errors.Password?.message}</Para>
           <Button type="submit">Login</Button>
-        </form>
+        </Form>
       </Container>
     </MainContatiner>
   );
