@@ -16,12 +16,7 @@ const main = () => (
       facilis deserunt possimus atque ducimus ullam velit et nam eos natus nihil
       quaerat voluptatibus quasi.
     </LoremPara>
-    <LoremPara>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolores
-      laboriosam eveniet autem quo facere, explicabo mollitia molestiae earum
-      facilis deserunt possimus atque ducimus ullam velit et nam eos natus nihil
-      quaerat voluptatibus quasi.
-    </LoremPara>
+
     <LoremPara>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolores
       laboriosam eveniet autem quo facere, explicabo mollitia molestiae earum

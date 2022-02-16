@@ -14,8 +14,8 @@ export const Container = styled.div`
 export const Para = styled.p`
   margin-left: 30px;
   font-family: "Outfit";
-  font-size: 4.1rem;
+  font-size: 5.1rem;
 `;
 export const LoremPara = styled.p`
-  width: 50%;
+  width: 45%;
 `;
