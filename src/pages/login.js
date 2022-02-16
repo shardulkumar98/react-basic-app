@@ -10,7 +10,7 @@ import {
   MainContatiner,
   Form,
   Para,
-} from "styles/login/login";
+} from "styles/pages/login";
 
 const schema = yup
   .object({
