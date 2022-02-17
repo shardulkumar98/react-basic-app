@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+
 import {
   Container,
   Head,
@@ -36,9 +38,11 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
+    navigate("/dashboard");
   };
 
   return (
@@ -46,9 +50,13 @@ const Login = () => {
       <Container>
         <Head>Log in your account</Head>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Input {...register("Email")} placeholder="Email" />
+          <Input {...register("Email")} placeholder="Email" type="email" />
           <Para>{errors.Email?.message}</Para>
-          <Input {...register("Password")} placeholder="Password" />
+          <Input
+            {...register("Password")}
+            placeholder="Password"
+            type="password"
+          />
           <Para>{errors.Password?.message}</Para>
           <Button type="submit">Login</Button>
         </Form>

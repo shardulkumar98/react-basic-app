@@ -12,7 +12,6 @@ export const Container = styled.div`
   height: 85vh;
 `;
 export const Para = styled.p`
-  margin-left: 30px;
   font-family: "Outfit";
   font-size: 5.1rem;
 `;
