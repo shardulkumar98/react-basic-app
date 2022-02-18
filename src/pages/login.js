@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import axios from "axios";
 
 import {
   Container,
@@ -16,11 +17,11 @@ import {
 
 const schema = yup
   .object({
-    Email: yup
+    email: yup
       .string()
       .matches("[a-z0-9]+@[a-z]+.[a-z]{2,3}", "enter valid email")
       .required("Email is mandatory"),
-    Password: yup
+    password: yup
       .string()
       .matches(
         /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
@@ -41,8 +42,19 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
-    navigate("/dashboard");
+    axios
+      .post("https://reqres.in/api/login", {
+        // email: data.email,
+        // password: data.password,
+        email: "eve.holt@reqres.in",
+        password: "cityslicka",
+      })
+      .then(function (response) {
+        navigate("/dashboard");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -50,14 +62,14 @@ const Login = () => {
       <Container>
         <Head>Log in your account</Head>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Input {...register("Email")} placeholder="Email" type="email" />
-          <Para>{errors.Email?.message}</Para>
+          <Input {...register("email")} placeholder="Email" type="email" />
+          <Para>{errors.email?.message}</Para>
           <Input
-            {...register("Password")}
-            placeholder="Password"
+            {...register("password")}
+            placeholder="password"
             type="password"
           />
-          <Para>{errors.Password?.message}</Para>
+          <Para>{errors.password?.message}</Para>
           <Button type="submit">Login</Button>
         </Form>
       </Container>
