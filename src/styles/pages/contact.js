@@ -33,6 +33,14 @@ export const Input = styled.input`
   line-height: 5px;
   margin: 8px 0px;
   letter-spacing: 0.2px;
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 export const TextArea = styled.textarea`
   font-family: "Outfit";
@@ -51,5 +59,5 @@ export const Button = styled.button`
   height: 25px;
   border: none;
   border-radius: 7px;
-  cursor: pointer; ;
+  cursor: pointer;
 `;
