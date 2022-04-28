@@ -2,8 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import usePost from "hooks/usePost";
 import * as yup from "yup";
-import axios from "axios";
 
 import {
   Container,
@@ -32,39 +32,53 @@ const schema = yup
   .required();
 
 const Login = () => {
+  const { mutateAsync } = usePost();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    // resolver: yupResolver(schema),
   });
   const navigate = useNavigate();
 
   const goToSignUp = () => {
     navigate("/signup");
   };
-  const onSubmit = (data) => {
-    axios
-      .post("https://reqres.in/api/login", {
-        // email: data.email,
-        // password: data.password,
-        email: "eve.holt@reqres.in",
-        password: "cityslicka",
-      })
-      .then(function (response) {
-        navigate("/dashboard");
-      })
-      .catch(function (error) {
-        console.log(error);
+
+  const formData = async (data) => {
+    try {
+      console.log("formdata");
+      const response = await mutateAsync({
+        url: "/login",
+        payload: data,
       });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   };
+  // const onSubmit = (data) => {
+  //   axios
+  //     .post("https://reqres.in/api/login", {
+  //       // email: data.email,
+  //       // password: data.password,
+  //       email: "eve.holt@reqres.in",
+  //       password: "cityslicka",
+  //     })
+  //     .then(function (response) {
+  //       navigate("/dashboard");
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <MainContatiner>
       <Container>
         <Head>Log in your account</Head>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(formData)}>
           <Input {...register("email")} placeholder="Email" type="email" />
           <Para>{errors.email?.message}</Para>
           <Input

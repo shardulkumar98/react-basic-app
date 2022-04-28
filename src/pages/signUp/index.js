@@ -31,10 +31,11 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const formData = async (data) => {
+    console.log(data);
     console.log("here");
     try {
       const response = await mutateAsync({
-        url: "http://localhost:3000/signup",
+        url: "/signup",
         payload: data,
       });
       console.log(response);
