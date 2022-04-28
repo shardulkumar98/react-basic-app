@@ -41,6 +41,9 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
+  const goToSignUp = () => {
+    navigate("/signup");
+  };
   const onSubmit = (data) => {
     axios
       .post("https://reqres.in/api/login", {
@@ -73,6 +76,7 @@ const Login = () => {
           <Button type="submit">Login</Button>
         </Form>
       </Container>
+      <div onClick={goToSignUp}>create an account</div>
     </MainContatiner>
   );
 };

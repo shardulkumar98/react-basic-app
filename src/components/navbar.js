@@ -19,6 +19,9 @@ const Navbar = () => (
         </Li>
       </Ul>
     </NavItems>
+    <div>
+      <p>Log out</p>
+    </div>
   </Nav>
 );
 

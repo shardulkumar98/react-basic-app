@@ -33,7 +33,7 @@ const Contact = () => {
             rows="10"
             {...register("Description")}
             placeholder="Description"
-          ></TextArea>
+          />
           <Button type="submit">Send</Button>
         </Form>
         <p>{JSON.stringify(data)}</p>
